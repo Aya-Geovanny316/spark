@@ -6,3 +6,4 @@ out/
 !.env.example
 uploads/
 *.log
+.neon

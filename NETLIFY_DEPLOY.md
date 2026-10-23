@@ -6,9 +6,9 @@
 | --- | --- | --- |
 | Next.js / App Router | Compatible | Next 15 con rutas dinámicas y funciones Node. |
 | Build de Netlify | Preparado | `npm run db:generate && npm run build`, plugin oficial de Next. |
-| Base de datos | Requiere servicio externo | PostgreSQL administrado, recomendado Supabase. |
-| Prisma | Compatible con configuración | `DATABASE_URL` pooled para runtime y `DIRECT_URL` para migraciones. |
-| Autenticación | Preparada | NextAuth con JWT; Supabase Auth en producción. |
+| Base de datos | Configurada localmente | PostgreSQL administrado en Neon, branch `production`. |
+| Prisma | Compatible con configuración | `DATABASE_URL` pooled para runtime y `DATABASE_URL_UNPOOLED` para migraciones. |
+| Autenticación | Preparada | NextAuth con JWT y usuarios Prisma; Supabase Auth es opcional. |
 | Fotografías | Preparadas | Supabase Storage mediante `SUPABASE_SERVICE_ROLE_KEY` privada. |
 | PDF / QR | Compatible | `pdf-lib`, `qrcode` y Canvas, sin binarios externos. |
 | Temáticas | Compatible | Se calculan con `America/Guatemala` en la aplicación. |
@@ -25,23 +25,23 @@
 
 No se debe activar `output: export` para Netlify. Esa opción solo se usa cuando `GITHUB_PAGES=true`.
 
-## 2. Supabase
+## 2. Neon PostgreSQL
 
-Crear un proyecto Supabase y ejecutar `supabase/schema.sql` en el SQL Editor. Después:
+El proyecto está vinculado al proyecto Neon configurado en `.neon`, branch `production`. La base ya debe recibir migraciones mediante Prisma. Para una instalación nueva:
 
-1. Crear el usuario administrador en Supabase Authentication → Users.
-2. En User Metadata asignar, como mínimo, `{ "role": "ADMIN", "name": "SPARK Admin" }`.
-3. Confirmar que el bucket público `product-images` exista.
-4. Mantener la service role exclusivamente como variable privada de Netlify.
-5. Ejecutar las migraciones de Prisma desde un entorno controlado usando `DIRECT_URL`; no hacerlo automáticamente durante cada deploy.
+1. Configurar `DATABASE_URL` con la cadena pooled de Neon.
+2. Configurar `DATABASE_URL_UNPOOLED` con la cadena directa de Neon.
+3. Ejecutar `npx prisma migrate deploy` desde un entorno controlado antes del primer deploy.
+4. Ejecutar `npm run db:seed` solo para una base nueva y con credenciales administrativas seguras.
+5. Mantener las variables de Supabase únicamente para Storage/Auth si se conservan esas integraciones.
 
 ## 3. Variables de entorno en Netlify
 
 Configurar Production, y también Deploy Previews si se desean probar:
 
 ```text
-DATABASE_URL=postgresql://...pooler.supabase.com:6543/postgres?pgbouncer=true&connection_limit=1
-DIRECT_URL=postgresql://...db.<proyecto>.supabase.co:5432/postgres
+DATABASE_URL=postgresql://...pooler.<endpoint>.neon.tech/<database>?sslmode=require&channel_binding=require
+DATABASE_URL_UNPOOLED=postgresql://...<endpoint>.neon.tech/<database>?sslmode=require&channel_binding=require
 NEXTAUTH_SECRET=<secreto aleatorio largo>
 NEXTAUTH_URL=https://<sitio>.netlify.app
 NEXT_PUBLIC_SITE_URL=https://<sitio>.netlify.app
@@ -57,10 +57,10 @@ No agregar `SEED_ADMIN_EMAIL` ni `SEED_ADMIN_PASSWORD` en producción. No copiar
 
 ## 4. Primera publicación
 
-1. Guardar las variables.
+1. Guardar las variables de Neon, NextAuth y Supabase Storage/Auth si aplican.
 2. Ejecutar el primer deploy.
 3. Abrir `https://<sitio>.netlify.app/` y comprobar el menú público.
-4. Abrir `/admin/login` y probar el usuario de Supabase Auth.
+4. Abrir `/admin/login` y probar el usuario administrador creado en Neon/Prisma.
 5. Crear una categoría o producto de prueba y comprobar que persiste tras recargar.
 6. Subir una fotografía y comprobar que la URL pertenece al bucket de Supabase.
 7. Configurar `publicMenuUrl` desde el panel con la URL pública definitiva.
@@ -81,6 +81,6 @@ Usar **Deploys → seleccionar deploy anterior → Publish deploy**. No borrar l
 
 ## Limitaciones pendientes
 
-- No se puede verificar aquí la conexión real a Supabase ni la persistencia de producción sin credenciales.
+- La conexión a Neon y la persistencia local ya fueron verificadas; falta repetirlas desde el dominio Netlify.
 - No se ejecutó un escaneo físico del QR en Android/iPhone.
 - No se realizó ningún deploy ni se modificó GitHub o Netlify.

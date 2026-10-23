@@ -17,9 +17,9 @@
 
 ## Pendiente de credenciales o servicio externo
 
-- [ ] Crear proyecto PostgreSQL/Supabase.
-- [ ] Ejecutar `supabase/schema.sql`.
-- [ ] Configurar `DATABASE_URL` y `DIRECT_URL`.
+- [x] Crear y vincular proyecto PostgreSQL en Neon.
+- [x] Aplicar migración inicial de Prisma en Neon.
+- [ ] Configurar `DATABASE_URL` y `DATABASE_URL_UNPOOLED` de Neon en Netlify.
 - [ ] Crear usuario administrador en Supabase Auth.
 - [ ] Configurar las claves Supabase en Netlify.
 - [ ] Confirmar bucket público `product-images`.

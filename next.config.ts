@@ -1,4 +1,7 @@
+import { loadEnvConfig } from "@next/env";
 import type { NextConfig } from "next";
+
+loadEnvConfig(process.cwd());
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";
 
