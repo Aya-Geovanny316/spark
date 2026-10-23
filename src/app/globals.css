@@ -10,3 +10,17 @@ button, input { font: inherit; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { scrollbar-width: none; }
 ::selection { background: #0a0a0a; color: #fff; }
+
+footer img[alt="SPARK Specialty Coffee"] {
+  width: 18rem;
+  height: 8rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (max-width: 767px) {
+  footer img[alt="SPARK Specialty Coffee"] {
+    width: 16rem;
+    height: 7rem;
+  }
+}
