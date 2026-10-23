@@ -24,3 +24,44 @@ footer img[alt="SPARK Specialty Coffee"] {
     height: 7rem;
   }
 }
+
+main.theme-shell {
+  --theme-page: #ffffff;
+  --theme-surface: #ffffff;
+  --theme-ink: #0a0a0a;
+  --theme-muted: #777777;
+  --theme-accent: #0a0a0a;
+  background: var(--theme-page);
+  color: var(--theme-ink);
+  transition: background-color 350ms ease, color 350ms ease;
+}
+main.theme-shell[data-theme="halloween"] { --theme-page: #fbf8f5; --theme-surface: #fffaf6; --theme-ink: #17121b; --theme-muted: #706572; --theme-accent: #c76a25; }
+main.theme-shell[data-theme="christmas"] { --theme-page: #fcf8ef; --theme-surface: #fffdf8; --theme-ink: #17352c; --theme-muted: #68756f; --theme-accent: #8d2737; }
+main.theme-shell[data-theme="valentines"] { --theme-page: #fff8f8; --theme-surface: #ffffff; --theme-ink: #4a1d2b; --theme-muted: #8b6873; --theme-accent: #a73555; }
+main.theme-shell[data-theme="halloween"] #menu,
+main.theme-shell[data-theme="christmas"] #menu,
+main.theme-shell[data-theme="valentines"] #menu { background: var(--theme-page); }
+main.theme-shell[data-theme="halloween"] header { background: rgba(255,250,246,.94) !important; border-color: rgba(199,106,37,.2); }
+main.theme-shell[data-theme="christmas"] header { background: rgba(255,253,248,.94) !important; border-color: rgba(141,39,55,.2); }
+main.theme-shell[data-theme="valentines"] header { background: rgba(255,255,255,.94) !important; border-color: rgba(167,53,85,.2); }
+main.theme-shell[data-theme="halloween"] .border\-\[eee\],
+main.theme-shell[data-theme="christmas"] .border\-\[eee\],
+main.theme-shell[data-theme="valentines"] .border\-\[eee\] { border-color: color-mix(in srgb, var(--theme-accent) 16%, transparent); }
+main.theme-shell[data-theme="halloween"] .bg-black,
+main.theme-shell[data-theme="christmas"] .bg-black,
+main.theme-shell[data-theme="valentines"] .bg-black { background-color: var(--theme-accent) !important; }
+main.theme-shell[data-theme="halloween"] .text-\[888\],
+main.theme-shell[data-theme="christmas"] .text-\[888\],
+main.theme-shell[data-theme="valentines"] .text-\[888\] { color: var(--theme-muted) !important; }
+.theme-decor { position: fixed; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
+.theme-decor span { position: absolute; font-size: 1rem; opacity: .28; animation: theme-float 8s ease-in-out infinite; }
+.theme-decor span:nth-child(1) { top: 24%; right: 8%; }
+.theme-decor span:nth-child(2) { top: 52%; left: 6%; animation-delay: -2s; }
+.theme-decor span:nth-child(3) { bottom: 18%; right: 13%; animation-delay: -4s; }
+.theme-decor-halloween { color: #c76a25; }
+.theme-decor-christmas { color: #8d2737; }
+.theme-decor-valentines { color: #a73555; }
+@keyframes theme-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.theme-preview-banner { position: fixed; inset: 0 0 auto; z-index: 40; display: flex; align-items: center; justify-content: center; gap: .75rem; min-height: 36px; padding: .4rem 1rem; background: #0a0a0a; color: #fff; font-size: .75rem; }
+.theme-preview-banner a, .theme-preview-banner button { border: 1px solid rgba(255,255,255,.45); border-radius: 999px; padding: .25rem .65rem; color: inherit; }
+@media (prefers-reduced-motion: reduce) { .theme-decor span { animation: none; } main.theme-shell { transition: none; } }
