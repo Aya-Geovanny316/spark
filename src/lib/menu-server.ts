@@ -9,7 +9,8 @@ export async function loadMenuData() {
     const menuCategories: MenuCategory[] = categories.map(category => ({ id: category.slug, name: category.name }));
     const products: MenuProduct[] = rows.map(product => ({ id: product.slug, name: product.name, description: product.description, price: Number(product.price), category: product.category.slug, image: product.imageUrl || "/images/product-placeholder.svg", variants: product.variants.map(variant => ({ name: variant.name, price: Number(variant.price) })) }));
     return { categories: menuCategories.length ? menuCategories : fallbackCategories, products: products.length ? products : fallbackProducts, settings: settingMap };
-  } catch {
+  } catch (error) {
+    if (process.env.NODE_ENV === "production") throw error;
     return { categories: fallbackCategories, products: fallbackProducts, settings: fallbackSettings };
   }
 }

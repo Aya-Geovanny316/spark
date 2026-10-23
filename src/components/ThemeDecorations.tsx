@@ -1,7 +1,5 @@
+"use client";
 import type { ThemeId } from "@/lib/themes";
-
-export default function ThemeDecorations({ theme }: { theme: ThemeId }) {
-  if (theme === "original") return null;
-  const symbols = theme === "halloween" ? ["✦", "◇", "✦"] : theme === "christmas" ? ["✧", "·", "✦"] : ["♡", "·", "♥"];
-  return <div className={`theme-decor theme-decor-${theme}`} aria-hidden="true">{symbols.map((symbol, index) => <span key={`${symbol}-${index}`}>{symbol}</span>)}</div>;
-}
+import SeasonalLogo from "./SeasonalLogo";
+type Props = { theme: ThemeId };
+export default function ThemeDecorations({ theme }: Props) { if (theme === "original") return null; return <div className="seasonal-decorations"><div className="seasonal-logo-overlay"><SeasonalLogo theme={theme} /></div></div>; }

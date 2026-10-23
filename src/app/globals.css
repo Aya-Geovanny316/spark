@@ -18,6 +18,14 @@ footer img[alt="SPARK Specialty Coffee"] {
   object-position: left center;
 }
 
+/* Logo visible in the print-menu preview on its warm paper background. */
+.sticky .border-b > p:first-child {
+  color: transparent;
+  width: 8rem;
+  height: 2.5rem;
+  background: url("/images/themes/spark_logo_original.png") left center / contain no-repeat;
+}
+
 @media (max-width: 767px) {
   footer img[alt="SPARK Specialty Coffee"] {
     width: 16rem;
@@ -35,45 +43,363 @@ main.theme-shell {
   color: var(--theme-ink);
   transition: background-color 350ms ease, color 350ms ease;
 }
-main.theme-shell[data-theme="halloween"] { --theme-page: #fbf8f5; --theme-surface: #fffaf6; --theme-ink: #17121b; --theme-muted: #706572; --theme-accent: #c76a25; }
-main.theme-shell[data-theme="christmas"] { --theme-page: #fcf8ef; --theme-surface: #fffdf8; --theme-ink: #17352c; --theme-muted: #68756f; --theme-accent: #8d2737; }
-main.theme-shell[data-theme="valentines"] { --theme-page: #fff8f8; --theme-surface: #ffffff; --theme-ink: #4a1d2b; --theme-muted: #8b6873; --theme-accent: #a73555; }
+main.theme-shell[data-theme="halloween"] { --theme-page: #fff4e8; --theme-surface: #fffaf3; --theme-ink: #171717; --theme-muted: #854d27; --theme-accent: #f97316; }
+main.theme-shell[data-theme="christmas"] { --theme-page: #fff8ec; --theme-surface: #fffdf8; --theme-ink: #14532d; --theme-muted: #4d6b57; --theme-accent: #166534; }
+main.theme-shell[data-theme="valentines"] { --theme-page: #fff7fa; --theme-surface: #fffdfd; --theme-ink: #7b2442; --theme-muted: #a35c76; --theme-accent: #e75480; }
+main.theme-shell[data-theme="guatemala"] { --theme-page: #fffdf7; --theme-surface: #ffffff; --theme-ink: #242424; --theme-muted: #256a9e; --theme-accent: #4997d0; }
 main.theme-shell[data-theme="halloween"] #menu,
 main.theme-shell[data-theme="christmas"] #menu,
 main.theme-shell[data-theme="valentines"] #menu { background: var(--theme-page); }
-main.theme-shell[data-theme="halloween"] #menu { border-top: 4px solid #c76a25; }
-main.theme-shell[data-theme="christmas"] #menu { border-top: 4px solid #8d2737; }
-main.theme-shell[data-theme="valentines"] #menu { border-top: 4px solid #a73555; }
+main.theme-shell[data-theme="guatemala"] #menu { background: var(--theme-page); border-top: 4px solid #4997d0; }
+main.theme-shell[data-theme="halloween"] #menu { border-top: 4px solid #f97316; }
+main.theme-shell[data-theme="christmas"] #menu { border-top: 4px solid #166534; }
+main.theme-shell[data-theme="valentines"] #menu { border-top: 4px solid #e75480; }
+main.theme-shell[data-theme="guatemala"] #menu h2,
+main.theme-shell[data-theme="guatemala"] #menu h3 { color: #256a9e; }
 main.theme-shell[data-theme="halloween"] #menu h2,
-main.theme-shell[data-theme="halloween"] #menu h3 { color: #6f2d55; }
+main.theme-shell[data-theme="halloween"] #menu h3 { color: #f97316; }
 main.theme-shell[data-theme="christmas"] #menu h2,
-main.theme-shell[data-theme="christmas"] #menu h3 { color: #17352c; }
+main.theme-shell[data-theme="christmas"] #menu h3 { color: #14532d; }
 main.theme-shell[data-theme="valentines"] #menu h2,
-main.theme-shell[data-theme="valentines"] #menu h3 { color: #8d2948; }
+main.theme-shell[data-theme="valentines"] #menu h3 { color: #c93b65; }
 main.theme-shell[data-theme="halloween"] #menu section > div:first-child,
 main.theme-shell[data-theme="christmas"] #menu section > div:first-child,
 main.theme-shell[data-theme="valentines"] #menu section > div:first-child { border-bottom-color: color-mix(in srgb, var(--theme-accent) 45%, #e5e5e5); }
-main.theme-shell[data-theme="halloween"] footer { background: #211525 !important; }
-main.theme-shell[data-theme="christmas"] footer { background: #17352c !important; }
-main.theme-shell[data-theme="valentines"] footer { background: #4a1d2b !important; }
-main.theme-shell[data-theme="halloween"] header { background: rgba(255,250,246,.94) !important; border-color: rgba(199,106,37,.2); }
-main.theme-shell[data-theme="christmas"] header { background: rgba(255,253,248,.94) !important; border-color: rgba(141,39,55,.2); }
-main.theme-shell[data-theme="valentines"] header { background: rgba(255,255,255,.94) !important; border-color: rgba(167,53,85,.2); }
+main.theme-shell[data-theme="halloween"] footer { background: #171717 !important; }
+main.theme-shell[data-theme="christmas"] footer { background: #14532d !important; }
+main.theme-shell[data-theme="valentines"] footer { background: #9f3155 !important; }
+main.theme-shell[data-theme="guatemala"] footer { background: #256a9e !important; }
+main.theme-shell[data-theme="halloween"] header { background: rgba(255,244,232,.97) !important; border-color: rgba(249,115,22,.35); }
+main.theme-shell[data-theme="christmas"] header { background: rgba(255,248,236,.97) !important; border-color: rgba(20,83,45,.3); }
+main.theme-shell[data-theme="valentines"] header { background: rgba(255,247,250,.96) !important; border-color: rgba(231,84,128,.32); }
+main.theme-shell[data-theme="guatemala"] header { background: rgba(255,255,255,.97) !important; border-color: rgba(73,151,208,.35); }
+main.theme-shell[data-theme="halloween"] footer img[alt="SPARK Specialty Coffee"] { content: url("/images/themes/spark_logo_halloween.png"); }
+main.theme-shell[data-theme="christmas"] footer img[alt="SPARK Specialty Coffee"] { content: url("/images/themes/spark_logo_navidad.png"); }
+main.theme-shell[data-theme="valentines"] footer img[alt="SPARK Specialty Coffee"] { content: url("/images/themes/spark_logo_san_valentin.png"); }
+main.theme-shell[data-theme="guatemala"] footer img[alt="SPARK Specialty Coffee"] { content: url("/images/themes/spark_logo_guatemala.png"); }
 main.theme-shell[data-theme="halloween"] .border\-\[eee\],
 main.theme-shell[data-theme="christmas"] .border\-\[eee\],
 main.theme-shell[data-theme="valentines"] .border\-\[eee\] { border-color: color-mix(in srgb, var(--theme-accent) 16%, transparent); }
 main.theme-shell[data-theme="halloween"] .text-\[888\],
 main.theme-shell[data-theme="christmas"] .text-\[888\],
 main.theme-shell[data-theme="valentines"] .text-\[888\] { color: var(--theme-muted) !important; }
-.theme-decor { position: fixed; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
-.theme-decor span { position: absolute; font-size: 1rem; opacity: .28; animation: theme-float 8s ease-in-out infinite; }
-.theme-decor span:nth-child(1) { top: 24%; right: 8%; }
-.theme-decor span:nth-child(2) { top: 52%; left: 6%; animation-delay: -2s; }
-.theme-decor span:nth-child(3) { bottom: 18%; right: 13%; animation-delay: -4s; }
-.theme-decor-halloween { color: #c76a25; }
-.theme-decor-christmas { color: #8d2737; }
-.theme-decor-valentines { color: #a73555; }
-@keyframes theme-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+main.theme-shell[data-theme="guatemala"] .border-\[eee\] { border-color: rgba(73,151,208,.2); }
+main.theme-shell[data-theme="guatemala"] .text-\[888\] { color: var(--theme-muted) !important; }
 .theme-preview-banner { position: fixed; inset: 0 0 auto; z-index: 40; display: flex; align-items: center; justify-content: center; gap: .75rem; min-height: 36px; padding: .4rem 1rem; background: #0a0a0a; color: #fff; font-size: .75rem; }
 .theme-preview-banner a, .theme-preview-banner button { border: 1px solid rgba(255,255,255,.45); border-radius: 999px; padding: .25rem .65rem; color: inherit; }
-@media (prefers-reduced-motion: reduce) { .theme-decor span { animation: none; } main.theme-shell { transition: none; } }
+@media (prefers-reduced-motion: reduce) { main.theme-shell { transition: none; } }
+
+@media print {
+  body { background: white !important; }
+  body > * { display: none !important; }
+  body > #__next, body > div { display: block !important; }
+  main { min-height: 100vh !important; background: white !important; }
+  main > div > *:not(h1):not(p) { }
+  button, input, label, a { display: none !important; }
+}
+
+/* Seasonal logos and lightweight decorative artwork. */
+.seasonal-decorations { position: fixed; inset: 0; z-index: 35; pointer-events: none; overflow: hidden; }
+.seasonal-logo-overlay { position: fixed; top: 10px; left: 1rem; z-index: 36; width: 9rem; height: 44px; pointer-events: none; }
+.seasonal-logo-overlay img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.seasonal-art { position: absolute; inset: 0; color: var(--theme-accent); }
+.seasonal-art svg, .seasonal-art span { position: absolute; display: block; }
+.seasonal-art svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.seasonal-art-halloween { color: #7a3d69; }
+.seasonal-art-halloween .seasonal-moon { top: 5.5rem; right: 7%; width: 3.8rem; height: 3.8rem; fill: #c76a25; stroke: #c76a25; opacity: .18; }
+.seasonal-art-halloween .moon-cut { fill: var(--theme-page); stroke: var(--theme-page); }
+.seasonal-art-halloween .seasonal-pumpkin { right: 3%; bottom: 17%; width: 3.1rem; height: 2.7rem; color: #c76a25; opacity: .38; }
+.seasonal-art-halloween .seasonal-face { stroke-width: 2.5; }
+.seasonal-bat { width: 3rem; height: 1.5rem; fill: currentColor; stroke: none !important; opacity: .32; }
+.seasonal-bat-one { top: 7.5rem; left: 13%; }
+.seasonal-bat-two { top: 12rem; right: 16%; transform: scale(.65); opacity: .2; }
+.seasonal-star { color: #c76a25; font-size: 1.1rem; opacity: .4; }
+.seasonal-star-a { top: 11rem; left: 7%; }
+.seasonal-star-b { top: 19rem; right: 8%; }
+.seasonal-web { top: 4rem; width: 4rem; height: 4rem; opacity: .18; border: 1px solid currentColor; border-radius: 50%; }
+.seasonal-web-a { left: -2rem; transform: skew(-18deg); }
+.seasonal-web-b { right: -2rem; transform: skew(18deg); }
+.seasonal-art-christmas { color: #b88935; }
+.seasonal-pine { top: 4.5rem; width: 8rem; height: 4rem; stroke: #17352c; opacity: .32; }
+.seasonal-pine-left { left: -1rem; }
+.seasonal-tree { right: 4%; bottom: 17%; width: 2.4rem; height: 3rem; fill: #17352c; stroke: #17352c; opacity: .25; }
+.seasonal-light { top: 5.3rem; width: .45rem; height: .45rem; border-radius: 999px; background: #b88935; box-shadow: 0 0 8px rgba(184,137,53,.42); opacity: .6; }
+.light-a { left: 31%; }.light-b { left: 52%; }.light-c { right: 28%; }
+.seasonal-snow { color: #b88935; font-size: 1rem; opacity: .38; }
+.snow-a { top: 10rem; left: 24%; }.snow-b { top: 16rem; right: 12%; }.snow-c { top: 25rem; left: 8%; }
+.seasonal-garland { top: 4.6rem; left: 20%; right: 16%; height: 1.2rem; border-bottom: 1px solid rgba(184,137,53,.35); border-radius: 50%; }
+.seasonal-art-valentines { color: #a73555; }
+.seasonal-flower { top: 5.2rem; left: 3%; width: 3.1rem; height: 3.1rem; fill: none; stroke: currentColor; opacity: .25; }
+.seasonal-heart { color: #a73555; font-size: 1.2rem; opacity: .32; }
+.heart-a { top: 9rem; right: 10%; }.heart-b { bottom: 18%; left: 7%; font-size: .9rem; }
+.seasonal-petal { color: #c98294; font-size: 1.4rem; opacity: .35; }.petal-a { top: 17rem; left: 14%; }.petal-b { top: 22rem; right: 18%; }
+@media (min-width: 768px) { .seasonal-logo-overlay { top: 14px; left: 2.5rem; width: 12rem; height: 50px; } }
+
+/* Visible seasonal ambience: artwork stays in the safe margins and never receives input. */
+.seasonal-art { isolation: isolate; }
+.seasonal-art svg, .seasonal-art span { opacity: .58; }
+.seasonal-art-halloween { color: #542647; }
+.seasonal-art-halloween .seasonal-moon { top: 5rem; right: 8%; width: clamp(6rem, 13vw, 9rem); height: clamp(6rem, 13vw, 9rem); fill: #f0c083; stroke: #f0c083; opacity: .85; }
+.seasonal-art-halloween .moon-cut { fill: #fbf8f5; stroke: #fbf8f5; }
+.seasonal-art-halloween .seasonal-pumpkin { width: clamp(4.2rem, 8vw, 6.5rem); height: clamp(3.7rem, 7vw, 5.7rem); color: #c76a25; opacity: .85; }
+.seasonal-art-halloween .pumpkin-left { left: 2%; top: 28%; }.seasonal-art-halloween .pumpkin-right { right: 2%; top: 67%; transform: scale(.82); }
+.seasonal-art-halloween .seasonal-face { stroke-width: 2.5; }
+.seasonal-art-halloween .seasonal-bat { width: clamp(3rem, 7vw, 6rem); height: auto; fill: #351a38; opacity: .82; }
+.seasonal-art-halloween .bat-one { top: 9rem; left: 17%; }.seasonal-art-halloween .bat-two { top: 13rem; left: 31%; transform: scale(.68); }.seasonal-art-halloween .bat-three { top: 8rem; right: 21%; transform: scale(.5); }.seasonal-art-halloween .bat-four { top: 25rem; right: 8%; transform: scale(.72); }
+.seasonal-art-halloween .seasonal-star { color: #c76a25; font-size: clamp(1.1rem, 2vw, 1.8rem); opacity: .8; }.star-a { top: 15rem; left: 7%; }.star-b { top: 20rem; left: 25%; }.star-c { top: 18rem; right: 12%; }.star-d { top: 34rem; right: 24%; }
+.seasonal-art-halloween .seasonal-web { width: 8rem; height: 8rem; top: 4rem; border-width: 2px; border-color: #542647; opacity: .55; }.web-left { left: -3rem; }.web-right { right: -3rem; }
+.seasonal-art-halloween .seasonal-spider { width: 1rem; height: 1rem; top: 6.2rem; border: 2px solid #351a38; border-radius: 50%; opacity: .7; }.spider-one { left: 12%; }.spider-two { right: 24%; top: 10rem !important; }
+.seasonal-art-halloween .seasonal-leaf { color: #9b4e2b; font-size: 1.5rem; opacity: .7; }.leaf-one { left: 11%; top: 47%; transform: rotate(28deg); }.leaf-two { right: 13%; top: 58%; transform: rotate(-35deg); }
+.seasonal-art-christmas { color: #b88935; }
+.seasonal-art-christmas .seasonal-pine { width: clamp(10rem, 18vw, 15rem); height: auto; stroke-width: 4; opacity: .72; }.pine-left { left: -1rem; top: 4rem; }.pine-right { right: -1rem; top: 4rem; }
+.seasonal-art-christmas .seasonal-tree { width: clamp(4rem, 7vw, 6rem); height: auto; fill: #17352c; stroke: #17352c; opacity: .7; }.tree-left { left: 2%; top: 32%; }.tree-right { right: 2%; top: 68%; transform: scale(.8); }
+.seasonal-art-christmas .seasonal-mistletoe { top: 5.5rem; left: 45%; width: 5rem; height: 4rem; stroke: #17352c; stroke-width: 3; opacity: .72; }.seasonal-art-christmas .seasonal-mistletoe circle { fill: #8d2737; stroke: #8d2737; }
+.seasonal-art-christmas .seasonal-light { top: 5rem; width: .7rem; height: .7rem; background: #d2a64b; opacity: .85; box-shadow: 0 0 12px rgba(210,166,75,.8); }.light-a { left: 25%; }.light-b { left: 38%; }.light-c { left: 52%; }.light-d { left: 66%; }.light-e { left: 79%; }
+.seasonal-art-christmas .seasonal-snow { color: #b88935; font-size: clamp(1.4rem, 2.5vw, 2.2rem); opacity: .72; }.snow-a { top: 13rem; left: 10%; }.snow-b { top: 20rem; left: 28%; }.snow-c { top: 11rem; right: 29%; }.snow-d { top: 31rem; right: 10%; }
+.seasonal-art-christmas .seasonal-garland { top: 5rem; left: 21%; right: 18%; height: 2rem; border-bottom: 3px solid rgba(141,39,55,.55); border-radius: 50%; opacity: .8; }.seasonal-art-christmas .seasonal-gift { width: 3rem; height: 2.4rem; border: 2px solid #8d2737; background: #f4e3c2; opacity: .75; }.gift-left { left: 9%; top: 74%; }.gift-right { right: 10%; top: 46%; transform: scale(.75); }
+.seasonal-art-valentines { color: #e75480; }
+.seasonal-art-valentines .seasonal-flower { width: clamp(5rem, 9vw, 7.5rem); height: auto; stroke: #c93b65; stroke-width: 3; opacity: .7; }.flower-left { left: 2%; top: 22%; }.flower-right { right: 2%; top: 70%; transform: scale(.8); }
+.seasonal-art-valentines .seasonal-heart { color: #e75480; font-size: clamp(1.8rem, 3vw, 3rem); opacity: .72; text-shadow: 0 2px 0 #f8c8dc; }.heart-a { top: 8rem; left: 18%; }.heart-b { top: 17rem; right: 11%; }.heart-c { top: 31rem; left: 7%; font-size: 1.5rem; }.heart-d { top: 44%; right: 23%; font-size: 1.5rem; }.heart-e { top: 76%; left: 24%; font-size: 1.25rem; }
+.seasonal-art-valentines .seasonal-petal { color: #f4a6c1; font-size: 2rem; opacity: .75; }.petal-a { top: 14rem; left: 10%; }.petal-b { top: 27rem; right: 18%; }.petal-c { top: 54%; left: 31%; }
+.seasonal-art-valentines .seasonal-ribbon { width: 5rem; height: 3rem; border: 2px solid #e75480; border-top: 0; border-radius: 0 0 3rem 3rem; opacity: .6; }.ribbon-left { left: 20%; top: 5rem; transform: rotate(20deg); }.ribbon-right { right: 17%; top: 5rem; transform: rotate(-20deg); }
+main.theme-shell[data-theme="halloween"] #menu h3::before { content: "✦"; margin-right: .55rem; color: #c76a25; }
+main.theme-shell[data-theme="christmas"] #menu h3::before { content: "✶"; margin-right: .55rem; color: #b88935; }
+main.theme-shell[data-theme="valentines"] #menu h3::before { content: "♥"; margin-right: .55rem; color: #e75480; }
+main.theme-shell[data-theme="valentines"] #menu h3::after { content: "♥"; margin-left: .55rem; color: #f4a6c1; font-size: .75em; }
+main.theme-shell[data-theme="halloween"] #menu section + section,
+main.theme-shell[data-theme="christmas"] #menu section + section,
+main.theme-shell[data-theme="valentines"] #menu section + section { position: relative; }
+main.theme-shell[data-theme="halloween"] #menu section + section::after { content: "✧"; position: absolute; right: 4%; top: -2.5rem; color: #c76a25; font-size: 1.5rem; }
+main.theme-shell[data-theme="christmas"] #menu section + section::after { content: "✶"; position: absolute; right: 4%; top: -2.5rem; color: #b88935; font-size: 1.5rem; }
+main.theme-shell[data-theme="valentines"] #menu section + section::after { content: "♡"; position: absolute; right: 4%; top: -2.5rem; color: #e75480; font-size: 1.6rem; }
+@media (max-width: 767px) {
+  .seasonal-logo-overlay { left: .85rem; width: 8.5rem; }
+  .seasonal-art-halloween .seasonal-moon { top: 5.5rem; right: 3%; width: 5.5rem; height: 5.5rem; }
+  .seasonal-art-halloween .seasonal-bat { width: 3.5rem; }.seasonal-art-halloween .bat-two, .seasonal-art-halloween .bat-four { display: none; }
+  .seasonal-art-christmas .seasonal-pine { width: 8rem; }.seasonal-art-christmas .seasonal-mistletoe { display: none; }.seasonal-art-christmas .snow-b, .seasonal-art-christmas .snow-d { display: none; }
+  .seasonal-art-valentines .seasonal-flower { width: 4.5rem; }.seasonal-art-valentines .heart-d, .seasonal-art-valentines .heart-e { display: none; }
+  .seasonal-art > * { max-width: 28vw; }
+}
+
+/* Final seasonal palette and category accents. */
+.seasonal-art-halloween { color: #44245f; }
+.seasonal-art-halloween .seasonal-moon { fill: #f97316; stroke: #f97316; }
+.seasonal-art-halloween .seasonal-pumpkin { color: #f97316; }
+.seasonal-art-halloween .seasonal-star { color: #fb923c; }
+.seasonal-art-halloween .seasonal-web, .seasonal-art-halloween .seasonal-spider { color: #44245f; border-color: #44245f; }
+.seasonal-art-halloween .seasonal-leaf { color: #854d27; }
+.seasonal-art-christmas { color: #14532d; }
+.seasonal-art-christmas .seasonal-pine { stroke: #14532d; }
+.seasonal-art-christmas .seasonal-tree { fill: #166534; stroke: #166534; }
+.seasonal-art-christmas .seasonal-mistletoe { stroke: #166534; }
+.seasonal-art-christmas .seasonal-snow { color: #d4a437; }
+.seasonal-art-christmas .seasonal-garland { border-color: rgba(20,83,45,.68); }
+.seasonal-art .seasonal-star { width: clamp(1.4rem, 3vw, 2.6rem); height: auto; fill: currentColor; stroke: currentColor; stroke-width: 2; }
+.seasonal-art .seasonal-snow { width: clamp(1.8rem, 3.5vw, 3.2rem); height: auto; fill: none; stroke: currentColor; stroke-width: 3; }
+.seasonal-art .seasonal-spider { width: 2.6rem; height: 7rem; fill: none; stroke: currentColor; stroke-width: 2.2; }
+.seasonal-art .seasonal-leaf { width: 2.5rem; height: 3.6rem; fill: currentColor; stroke: currentColor; stroke-width: 1.5; }
+.seasonal-art .seasonal-gift { width: 4rem; height: 3.6rem; fill: #f4e3c2; stroke: #8d2737; stroke-width: 2; }
+.seasonal-art .seasonal-heart { width: clamp(2.2rem, 4vw, 4rem); height: auto; fill: currentColor; stroke: currentColor; stroke-width: 2; }
+.seasonal-art .seasonal-flower { width: clamp(5rem, 9vw, 8rem); height: auto; fill: none; stroke: currentColor; stroke-width: 2.5; }
+.seasonal-art .seasonal-petal { width: 1.4rem; height: 2.6rem; fill: currentColor; stroke: currentColor; stroke-width: 1.5; }
+.seasonal-art .seasonal-ribbon { width: 5.5rem; height: 3.8rem; fill: none; stroke: currentColor; stroke-width: 2.5; border: 0; }
+.seasonal-art-christmas .seasonal-mistletoe { top: 5.5rem; left: 45%; width: 6rem; height: 5rem; fill: none; stroke: #166534; stroke-width: 3; opacity: .78; }
+.seasonal-art-christmas .seasonal-mistletoe ellipse { fill: #166534; stroke: #166534; }
+.seasonal-art-christmas .seasonal-mistletoe circle { fill: #b91c1c; stroke: #b91c1c; }
+main.theme-shell[data-theme="halloween"] .seasonal-art .seasonal-star { color: #fb923c; }
+main.theme-shell[data-theme="christmas"] .seasonal-art .seasonal-star { color: #d4a437; }
+main.theme-shell[data-theme="halloween"] #menu section:nth-of-type(1) h3::before { content: "♢"; }
+main.theme-shell[data-theme="halloween"] #menu section:nth-of-type(2) h3::before { content: "✦"; }
+main.theme-shell[data-theme="halloween"] #menu section:nth-of-type(3) h3::before { content: "☾"; }
+main.theme-shell[data-theme="halloween"] #menu section:nth-of-type(4) h3::before { content: "◆"; }
+main.theme-shell[data-theme="halloween"] #menu section:nth-of-type(5) h3::before { content: "✧"; }
+main.theme-shell[data-theme="halloween"] #menu section:nth-of-type(6) h3::before { content: "♢"; }
+main.theme-shell[data-theme="christmas"] #menu section:nth-of-type(1) h3::before { content: "❧"; }
+main.theme-shell[data-theme="christmas"] #menu section:nth-of-type(2) h3::before { content: "✦"; }
+main.theme-shell[data-theme="christmas"] #menu section:nth-of-type(3) h3::before { content: "❄"; }
+main.theme-shell[data-theme="christmas"] #menu section:nth-of-type(4) h3::before { content: "❧"; }
+main.theme-shell[data-theme="christmas"] #menu section:nth-of-type(5) h3::before { content: "✶"; }
+main.theme-shell[data-theme="christmas"] #menu section:nth-of-type(6) h3::before { content: "▲"; }
+main.theme-shell[data-theme="halloween"] #menu section h3::before { color: #f97316; }
+main.theme-shell[data-theme="christmas"] #menu section h3::before { color: #d4a437; }
+/* Editorial composition layer. Each asset is positioned as a bounded composition, not as a loose icon. */
+.seasonal-composition-set { position: fixed; inset: 0; z-index: 35; pointer-events: none; overflow: hidden; }
+.seasonal-composition { position: absolute; pointer-events: none; will-change: transform, opacity; }
+.seasonal-composition img { display: block; width: 100%; height: auto; object-fit: contain; user-select: none; }
+.composition-moon-bats { top: 4.5rem; left: 50%; width: min(31rem, 42vw); transform: translateX(-50%); }
+.composition-pumpkin { top: 31%; left: -1.5rem; width: clamp(8rem, 13vw, 12rem); }
+.composition-autumn-branch { right: -1rem; bottom: 12%; width: clamp(13rem, 23vw, 21rem); }
+.composition-web { top: 4rem; left: -2rem; width: clamp(7rem, 12vw, 11rem); }
+.composition-pine { top: 3.5rem; left: -1rem; width: min(30rem, 40vw); }
+.composition-holly { top: 4rem; right: -1rem; width: clamp(10rem, 18vw, 16rem); }
+.composition-tree { top: 38%; right: -.8rem; width: clamp(6rem, 10vw, 9rem); }
+.composition-garland { right: 5%; bottom: 12%; width: clamp(13rem, 24vw, 22rem); }
+.composition-floral-hearts { top: 4.5rem; left: 50%; width: min(29rem, 40vw); transform: translateX(-50%); }
+.composition-rose-bouquet { top: 28%; left: -1rem; width: clamp(9rem, 15vw, 14rem); }
+.composition-ribbon { right: -1rem; bottom: 14%; width: clamp(13rem, 22vw, 20rem); }
+.composition-petals { top: 8rem; right: 5%; width: clamp(7rem, 12vw, 11rem); }
+main.theme-shell[data-theme="halloween"] .seasonal-composition-set { color: #F97316; }
+main.theme-shell[data-theme="christmas"] .seasonal-composition-set { color: #14532D; }
+main.theme-shell[data-theme="valentines"] .seasonal-composition-set { color: #E75480; }
+@media (max-width: 767px) {
+  .composition-moon-bats, .composition-floral-hearts { top: 5rem; left: auto; right: -1.2rem; width: 12.5rem; transform: none; }
+  .composition-pine { top: 4rem; left: -2rem; width: 13rem; }
+  .composition-pumpkin, .composition-holly, .composition-rose-bouquet { top: 34%; width: 6.8rem; }
+  .composition-autumn-branch, .composition-tree, .composition-ribbon { bottom: 17%; width: 9rem; }
+  .composition-web, .composition-garland, .composition-petals { display: none; }
+}
+
+/* Original: quiet coffee-editorial details, kept in safe margins. */
+main.theme-shell[data-theme="original"] { background: #FAF9F6; }
+main.theme-shell[data-theme="original"] #menu { background: #FAF9F6; }
+.seasonal-set-original .seasonal-composition { opacity: .72; }
+.seasonal-set-original .original-branch { top: 4.8rem; left: -1rem; width: clamp(12rem, 22vw, 19rem); }
+.seasonal-set-original .original-beans { top: 28%; right: 1%; width: clamp(7rem, 12vw, 11rem); }
+.seasonal-set-original .original-bloom { top: 62%; left: 1%; width: clamp(7rem, 12vw, 10rem); }
+.seasonal-set-original .original-cup { right: 2%; bottom: 8%; width: clamp(9rem, 15vw, 13rem); }
+@media (max-width: 767px) {
+  .seasonal-set-original .original-branch { top: 4.5rem; left: -3rem; width: 10rem; }
+  .seasonal-set-original .original-beans { top: 32%; right: -1.8rem; width: 6rem; }
+  .seasonal-set-original .original-bloom { display: none; }
+  .seasonal-set-original .original-cup { right: -2rem; bottom: 8%; width: 7rem; }
+  .seasonal-composition-set { overflow: hidden; }
+}
+
+/* Shared editorial category language for the Original and Guatemala themes. */
+.category-heading { min-height: 3.15rem; }
+.category-artwork {
+  display: inline-flex;
+  width: 3.35rem;
+  height: 2.35rem;
+  flex: 0 0 3.35rem;
+  align-items: center;
+  justify-content: center;
+  color: #404040;
+}
+.category-artwork svg { width: 100%; height: 100%; overflow: visible; }
+.category-heading-mark {
+  width: 2.5rem;
+  height: 1px;
+  margin-left: auto;
+  flex: 0 0 auto;
+  background: #171717;
+}
+.theme-divider-art {
+  display: inline-flex;
+  width: 7.5rem;
+  height: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  color: #404040;
+  opacity: .78;
+}
+.theme-divider-art svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.theme-divider-art-guatemala { color: #4997D0; }
+.theme-divider-art-guatemala svg { stroke-width: 1.35; }
+.theme-divider-art-guatemala circle { fill: #C6A66B; stroke: #C6A66B; }
+.theme-divider-art-original { color: #404040; }
+main.theme-shell[data-theme="original"] .category-artwork { color: #404040; }
+main.theme-shell[data-theme="original"] .category-heading-mark { background: #171717; }
+main.theme-shell[data-theme="guatemala"] .category-artwork { color: #256A9E; }
+main.theme-shell[data-theme="guatemala"] .category-heading-mark {
+  background: #4997D0;
+  box-shadow: 10px 0 0 #C6A66B;
+}
+main.theme-shell[data-theme="guatemala"] .category-artwork svg { stroke-linecap: round; stroke-linejoin: round; }
+.theme-header-art {
+  position: absolute;
+  top: 4.5rem;
+  right: 1.25rem;
+  z-index: 2;
+  width: min(18rem, 25vw);
+  height: 5rem;
+  pointer-events: none;
+}
+.theme-header-art svg { width: 100%; height: 100%; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.theme-header-art-original { color: #f5f1ea; opacity: .72; }
+.theme-header-art-original .header-art-branch { stroke-width: 2; }
+.theme-header-art-original .header-art-leaf { fill: none; stroke: currentColor; stroke-width: 1.4; }
+.theme-header-art-original .header-art-bean { fill: none; stroke: currentColor; stroke-width: 1.8; }
+.theme-header-art-original .header-art-bean-line { stroke: currentColor; stroke-width: 1.2; }
+.theme-header-art-guatemala { color: #dff2fb; opacity: .9; }
+.theme-header-art-guatemala .header-art-branch { stroke: #176B4A; stroke-width: 2; }
+.theme-header-art-guatemala .header-art-leaf { fill: #176B4A; stroke: #176B4A; stroke-width: 1.1; }
+.theme-header-art-guatemala .header-art-bean { fill: #C6A66B; stroke: #C6A66B; stroke-width: 1.4; }
+.theme-header-art-guatemala .header-art-bean-line { stroke: #FFFDF7; stroke-width: 1.1; }
+.theme-header-art-guatemala .header-art-ribbon { fill: #4997D0; stroke: #FFFFFF; stroke-width: 2; }
+.theme-header-art-guatemala .header-art-flower { fill: #FFFFFF; stroke: #FFFFFF; stroke-width: 1.4; }
+
+@media (max-width: 767px) {
+  .category-artwork { width: 2.85rem; height: 2rem; flex-basis: 2.85rem; }
+  .theme-divider-art { width: 4.4rem; height: 1.45rem; }
+  .category-heading-mark { width: 1.8rem; }
+  .theme-header-art { top: 4.4rem; right: .4rem; width: 10rem; height: 3.5rem; opacity: .75; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  main.theme-shell[data-theme="guatemala"] .category-artwork svg,
+  main.theme-shell[data-theme="original"] .category-artwork svg {
+    animation: spark-editorial-breathe 7s ease-in-out infinite;
+    transform-origin: center;
+  }
+}
+@keyframes spark-editorial-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.018); }
+}
+/* Quema del Diablo · variante temporal de Navidad (7 de diciembre, Guatemala). */
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"],
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-reveal"] { --theme-page: #fff7ed; --theme-surface: #fffaf5; --theme-ink: #292524; --theme-muted: #9a3412; --theme-accent: #b91c1c; transition: background-color .25s ease, color .25s ease; }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu,
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-reveal"] #menu { border-top: 4px solid #b91c1c; }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu h2,
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu h3 { color: #7f1d1d; }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] footer { background: #7f1d1d !important; }
+main.theme-shell[data-theme="christmas"][data-quema-state^="devil"] header { background: rgba(255,247,237,.97) !important; border-color: rgba(185,28,28,.3); }
+main.theme-shell[data-theme="christmas"][data-quema-state^="devil"] .category-artwork { color: #b91c1c; }
+main.theme-shell[data-theme="christmas"][data-quema-state^="devil"] .category-artwork svg { stroke: currentColor; }
+main.theme-shell[data-theme="christmas"][data-quema-state^="devil"] .category-heading-mark { background: #f97316; box-shadow: 10px 0 0 #fbbf24; }
+main.theme-shell[data-theme="christmas"][data-quema-state^="devil"] .category-artwork { filter: drop-shadow(0 2px 3px rgba(185,28,28,.18)); }
+main.theme-shell[data-theme="quema-diablo"] { --theme-page: #fff7ed; --theme-surface: #fffaf5; --theme-ink: #292524; --theme-muted: #9a3412; --theme-accent: #b91c1c; background: #fff7ed; color: #292524; }
+main.theme-shell[data-theme="quema-diablo"] #menu { background: #fff7ed; border-top: 4px solid #b91c1c; }
+main.theme-shell[data-theme="quema-diablo"] #menu h2,
+main.theme-shell[data-theme="quema-diablo"] #menu h3 { color: #7f1d1d; }
+main.theme-shell[data-theme="quema-diablo"] #menu section > div:first-child { border-bottom-color: rgba(185,28,28,.35); }
+main.theme-shell[data-theme="quema-diablo"] footer { background: #7f1d1d !important; }
+main.theme-shell[data-theme="quema-diablo"] header { background: rgba(255,247,237,.97) !important; border-color: rgba(185,28,28,.3); }
+main.theme-shell[data-theme="quema-diablo"] .category-artwork { color: #b91c1c; filter: drop-shadow(0 2px 3px rgba(185,28,28,.18)); }
+main.theme-shell[data-theme="quema-diablo"] .category-artwork svg { stroke: currentColor; }
+main.theme-shell[data-theme="quema-diablo"] .category-heading-mark { background: #f97316; box-shadow: 10px 0 0 #fbbf24; }
+main.theme-shell[data-theme="quema-diablo"] #menu h3::before { content: "✦"; color: #f97316; }
+main.theme-shell[data-theme="quema-diablo"] #menu section + section::after { content: "✧"; color: #fbbf24; }
+main.theme-shell[data-theme="quema-diablo"] .seasonal-composition-set { color: #b91c1c; }
+main.theme-shell[data-theme="quema-diablo"] footer img[alt="SPARK Specialty Coffee"] { content: url("/images/themes/spark_logo_quema_diablo.png"); }
+main.theme-shell[data-theme="quema-diablo"] #menu .bg-black { background: #b91c1c !important; }
+main.theme-shell[data-theme="quema-diablo"] #menu .text-\[888\] { color: #9a3412 !important; }
+main.theme-shell[data-theme="quema-diablo"] #menu .border-\[eee\] { border-color: rgba(185,28,28,.16); }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu { background: #fff7ed; }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu section > div:first-child { border-bottom-color: rgba(185,28,28,.35); }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu h3::before { content: "✦"; color: #f97316; }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu section + section::after { content: "✧"; color: #fbbf24; }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] .seasonal-composition-set { color: #b91c1c; }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] footer img[alt="SPARK Specialty Coffee"] { content: url("/images/themes/spark_logo_quema_diablo.png"); }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu .bg-black { background: #b91c1c !important; }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu .hover\:border-black:hover { border-color: #b91c1c; }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu .text-\[888\] { color: #9a3412 !important; }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu .border-\[eee\] { border-color: rgba(185,28,28,.16); }
+footer .footer-logo { transform: translateY(-1.65rem); }
+footer .footer-logo + p { margin-top: 2.25rem; }
+.quema-admin-card .text-white\/75 { color: #777 !important; }
+.quema-admin-card { border-top: 3px solid #b91c1c !important; }
+.quema-admin-card h2 { color: #7f1d1d; }
+.quema-admin-card .text-orange-200 { color: #b91c1c !important; }
+.quema-admin-card .border-white\/40 { border-color: #ddd !important; }
+.quema-admin-card .bg-orange-400 { background: #b91c1c !important; color: #fff !important; }
+section > div.grid.aspect-square svg { width: 100%; height: 100%; }
+section:has(input[type="checkbox"]:checked) > div.grid.aspect-square { position: relative; }
+section:has(input[type="checkbox"]:checked) > div.grid.aspect-square::after { content: ""; position: absolute; left: 50%; top: 50%; width: 18%; aspect-ratio: 1; transform: translate(-50%, -50%); border: 8px solid #fff; border-radius: 14px; background: #fff url("/images/themes/spark_logo_original.png") center / contain no-repeat; box-shadow: 0 0 0 2px rgba(0,0,0,.08); pointer-events: none; }
+.quema-header-art { position: absolute; top: 4.4rem; right: 2rem; z-index: 2; display: flex; gap: 1.2rem; color: #fbbf24; font-size: 1.2rem; pointer-events: none; }
+.quema-header-art span:nth-child(even) { color: #f97316; }
+main.theme-shell[data-quema-intensity="off"] .quema-header-art,
+main.theme-shell[data-quema-intensity="subtle"] .quema-header-art span:nth-child(n+4) { display: none; }
+@media (max-width: 640px) { .quema-header-art { right: .55rem; gap: .55rem; font-size: .85rem; } }
