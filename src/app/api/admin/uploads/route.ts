@@ -13,7 +13,8 @@ export async function POST(request: Request) {
   if (!(file instanceof File)) return NextResponse.json({ error: "Falta el archivo" }, { status: 400 });
   if (!allowedTypes.has(file.type)) return NextResponse.json({ error: "Solo se permiten JPG, PNG o WebP" }, { status: 400 });
   if (file.size > 8 * 1024 * 1024) return NextResponse.json({ error: "La imagen no puede superar 8 MB" }, { status: 400 });
-  const path = `products/${crypto.randomUUID()}.${extensionFor(file.type)}`;
+  const folder = form.get("folder") === "categories" ? "categories" : "products";
+  const path = `${folder}/${crypto.randomUUID()}.${extensionFor(file.type)}`;
   const supabase = getSupabaseAdminClient();
   const { error } = await supabase.storage.from(process.env.SUPABASE_STORAGE_BUCKET || "product-images").upload(path, Buffer.from(await file.arrayBuffer()), { contentType: file.type, upsert: false, cacheControl: "31536000" });
   if (error) return NextResponse.json({ error: "No se pudo guardar la imagen" }, { status: 500 });
