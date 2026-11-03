@@ -1,8 +1,10 @@
 "use client";
 
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ArrowUpRight, Clock3, Instagram, MapPin, Menu, Search, X } from "lucide-react";
-import { useMemo, useState, type MouseEvent } from "react";
+import { useMemo, useRef, useState, type MouseEvent } from "react";
 import CocoLatteEasterEgg from "./CocoLatteEasterEgg";
 import SeasonalLogo from "./SeasonalLogo";
 import { ThemeHeaderArtwork } from "./ThemeArtwork";
@@ -25,6 +27,7 @@ function CategoryHeading({ category, count }: { category: MenuCategory; count: n
 
 export default function MenuClient({ categories, products, settings, theme = "original", previewMode = false, onPublishTheme }: Props) {
   const [active, setActive] = useState("all"); const [query, setQuery] = useState(""); const [selected, setSelected] = useState<MenuProduct | null>(null); const [variant, setVariant] = useState(0); const [menuOpen, setMenuOpen] = useState(false);
+  const pageRef = useRef<HTMLElement>(null);
   const { scrollY } = useScroll(); const heroY = useTransform(scrollY, [0, 500], [0, 55]);
   const cats = [{ id: "all", name: "Todo" }, ...categories];
   const visible = useMemo(() => products.filter(product => (active === "all" || product.category === active) && `${product.name} ${product.description}`.toLowerCase().includes(query.toLowerCase())), [active, products, query]);
@@ -32,7 +35,11 @@ export default function MenuClient({ categories, products, settings, theme = "or
   const activeTheme = useTheme(theme);
   const quema = useQuemaDiablo();
   const open = (product: MenuProduct) => { setSelected(product); setVariant(0); }; const selectedPrice = selected?.variants.length ? selected.variants[variant].price : selected?.price || 0;
-  return <main data-theme={quema.active ? "quema-diablo" : activeTheme} data-quema-state={quema.active ? "devil-theme" : "christmas"} data-quema-intensity={quema.intensity} className="theme-shell">
+  useGSAP(() => {
+    const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
+    intro.from("#top > div:last-child p:first-child", { opacity: 0, y: 18, duration: .7 }).from("#top h1 + p", { opacity: 0, y: 18, duration: .7 }, "-=.3").from("#top a", { opacity: 0, y: 14, scale: .96, duration: .65 }, "-=.4");
+  }, { scope: pageRef, dependencies: [activeTheme] });
+  return <main ref={pageRef} data-theme={quema.active ? "quema-diablo" : activeTheme} data-quema-state={quema.active ? "devil-theme" : "christmas"} data-quema-intensity={quema.intensity} className="theme-shell">
     {previewMode && <div className="theme-preview-banner"><span>Vista previa privada · {activeTheme}</span><a href="/admin/temas">Salir de vista previa</a>{onPublishTheme && <button onClick={onPublishTheme}>Publicar temática</button>}</div>}
     <ThemeHeaderArtwork theme={activeTheme} />
     <header className="fixed inset-x-0 top-0 z-30 border-b border-black/5 bg-white/95 backdrop-blur-xl"><div className="mx-auto flex h-[64px] max-w-7xl items-center justify-between px-4 md:h-[72px] md:px-10"><a href="#top" aria-label="SPARK" className="block h-11 w-36 md:h-14 md:w-48"><SeasonalLogo theme={activeTheme} /></a><nav className="hidden items-center gap-8 text-sm text-[#555] md:flex"><a href="#menu">Menú</a><a href="#visit">Visítanos</a></nav><div className="flex items-center gap-2"><button aria-label="Buscar" onClick={() => document.getElementById("search")?.focus()} className="grid h-10 w-10 place-items-center rounded-full hover:bg-black/5"><Search size={19} strokeWidth={1.7} /></button><button aria-label="Abrir menú" onClick={() => setMenuOpen(!menuOpen)} className="grid h-10 w-10 place-items-center md:hidden">{menuOpen ? <X size={20} /> : <Menu size={20} />}</button></div></div>{menuOpen && <div className="border-t border-black/5 bg-white px-5 py-5 md:hidden"><a href="#menu" onClick={() => setMenuOpen(false)}>Menú</a></div>}</header>

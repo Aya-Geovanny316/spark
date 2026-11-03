@@ -41,7 +41,7 @@ main.theme-shell {
   --theme-accent: #0a0a0a;
   background: var(--theme-page);
   color: var(--theme-ink);
-  transition: background-color 350ms ease, color 350ms ease;
+  transition: background-color var(--duration-slow) ease, color var(--duration-slow) ease;
 }
 main.theme-shell[data-theme="halloween"] { --theme-page: #fff4e8; --theme-surface: #fffaf3; --theme-ink: #171717; --theme-muted: #854d27; --theme-accent: #f97316; }
 main.theme-shell[data-theme="christmas"] { --theme-page: #fff8ec; --theme-surface: #fffdf8; --theme-ink: #14532d; --theme-muted: #4d6b57; --theme-accent: #166534; }
@@ -339,7 +339,7 @@ main.theme-shell[data-theme="guatemala"] .category-artwork svg { stroke-linecap:
 @media (prefers-reduced-motion: no-preference) {
   main.theme-shell[data-theme="guatemala"] .category-artwork svg,
   main.theme-shell[data-theme="original"] .category-artwork svg {
-    animation: spark-editorial-breathe 7s ease-in-out infinite;
+    animation: spark-editorial-breathe var(--duration-drift) ease-in-out infinite;
     transform-origin: center;
   }
 }
@@ -349,7 +349,7 @@ main.theme-shell[data-theme="guatemala"] .category-artwork svg { stroke-linecap:
 }
 /* Quema del Diablo · variante temporal de Navidad (7 de diciembre, Guatemala). */
 main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"],
-main.theme-shell[data-theme="christmas"][data-quema-state="devil-reveal"] { --theme-page: #fff7ed; --theme-surface: #fffaf5; --theme-ink: #292524; --theme-muted: #9a3412; --theme-accent: #b91c1c; transition: background-color .25s ease, color .25s ease; }
+main.theme-shell[data-theme="christmas"][data-quema-state="devil-reveal"] { --theme-page: #fff7ed; --theme-surface: #fffaf5; --theme-ink: #292524; --theme-muted: #9a3412; --theme-accent: #b91c1c; transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease; }
 main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu,
 main.theme-shell[data-theme="christmas"][data-quema-state="devil-reveal"] #menu { border-top: 4px solid #b91c1c; }
 main.theme-shell[data-theme="christmas"][data-quema-state="devil-theme"] #menu h2,
@@ -403,3 +403,53 @@ section:has(input[type="checkbox"]:checked) > div.grid.aspect-square::after { co
 main.theme-shell[data-quema-intensity="off"] .quema-header-art,
 main.theme-shell[data-quema-intensity="subtle"] .quema-header-art span:nth-child(n+4) { display: none; }
 @media (max-width: 640px) { .quema-header-art { right: .55rem; gap: .55rem; font-size: .85rem; } }
+
+/* Refined coffee-menu motion language: soft surfaces, deliberate hover, no layout-jumping transitions. */
+:root { --duration-quick: 180ms; --duration-fast: 250ms; --duration-slow: 700ms; --duration-drift: 7s; --spark-ease: cubic-bezier(.22, 1, .36, 1); --spark-quick: var(--duration-quick); --spark-slow: var(--duration-slow); }
+main.theme-shell > header { transition: background-color var(--spark-slow) var(--spark-ease), box-shadow var(--spark-slow) var(--spark-ease), border-color var(--spark-slow) var(--spark-ease); }
+main.theme-shell > header > div.border-t { opacity: 1; transform: translateY(0) scaleY(1); transform-origin: top; transition: opacity var(--duration-quick) var(--spark-ease), transform var(--duration-fast) var(--spark-ease); }
+@starting-style { main.theme-shell > header > div.border-t { opacity: 0; transform: translateY(-8px) scaleY(.97); } }
+main.theme-shell > header nav a { position: relative; transition: color var(--spark-quick) ease; }
+main.theme-shell > header nav a::after { position: absolute; right: 0; bottom: -.45rem; left: 0; height: 1px; background: currentColor; content: ""; transform: scaleX(0); transform-origin: right; transition: transform var(--spark-slow) var(--spark-ease); }
+main.theme-shell > header nav a:hover::after, main.theme-shell > header nav a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+#top { isolation: isolate; }
+#top::after { position: absolute; inset: 0; z-index: 0; background: radial-gradient(circle at 76% 22%, rgba(224,190,142,.2), transparent 24%), linear-gradient(115deg, rgba(8,8,8,.68), transparent 60%); content: ""; pointer-events: none; }
+#top > div:last-child { z-index: 1; }
+#top h1 { text-wrap: balance; text-shadow: 0 3px 30px rgba(0,0,0,.2); }
+#top a { box-shadow: 0 12px 32px rgba(0,0,0,.18); transition: transform var(--spark-slow) var(--spark-ease), box-shadow var(--spark-slow) var(--spark-ease), background-color var(--spark-quick) ease; }
+#top a:hover, #top a:focus-visible { box-shadow: 0 18px 42px rgba(0,0,0,.3); transform: translateY(-3px); }
+#menu { position: relative; }
+#menu > div:first-child { position: relative; }
+#menu > div:first-child::after { position: absolute; right: 0; bottom: -.9rem; left: 0; height: 1px; background: linear-gradient(90deg, #1f1a17 0 18%, transparent 18% 82%, #d7c4aa 82%); content: ""; opacity: .55; }
+#menu input { transition: border-color var(--spark-quick) ease, box-shadow var(--spark-quick) ease; }
+#menu input:focus { border-color: #2b211c; box-shadow: 0 8px 24px rgba(43,33,28,.08); }
+#menu .group { transition: transform var(--spark-slow) var(--spark-ease), box-shadow var(--spark-slow) var(--spark-ease), border-color var(--spark-quick) ease; }
+#menu .group:hover { transform: translateY(-5px); }
+#menu .group > div:first-child { box-shadow: 0 8px 24px rgba(43,33,28,0); transition: box-shadow var(--spark-slow) var(--spark-ease), transform var(--spark-slow) var(--spark-ease); }
+#menu .group:hover > div:first-child { box-shadow: 0 16px 34px rgba(43,33,28,.13); }
+#menu .group h3 { transition: color var(--spark-quick) ease; }
+#menu .group:hover h3 { color: #8c5c36; }
+#menu button[class*="rounded-full"] { transition: color var(--spark-quick) ease, background-color var(--spark-slow) var(--spark-ease), border-color var(--spark-slow) var(--spark-ease), transform var(--spark-slow) var(--spark-ease); }
+#menu button[class*="rounded-full"]:hover { transform: translateY(-2px); }
+main.theme-shell > footer a { transition: color var(--spark-quick) ease, opacity var(--spark-quick) ease; }
+main.theme-shell > footer a:hover { color: #e4c89f; opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  main.theme-shell *, main.theme-shell *::before, main.theme-shell *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+
+/* Shared admin polish: one interaction language across dashboard, forms and mobile layouts. */
+main:not(.theme-shell) { --admin-ink: #2b211c; --admin-muted: #756b63; --admin-line: #e5ded6; }
+main:not(.theme-shell) a, main:not(.theme-shell) button { -webkit-tap-highlight-color: transparent; }
+main:not(.theme-shell) button:not(:disabled), main:not(.theme-shell) a[class*="rounded-full"] { transition: transform var(--spark-slow) var(--spark-ease), box-shadow var(--spark-slow) var(--spark-ease), background-color var(--spark-quick) ease, border-color var(--spark-quick) ease, color var(--spark-quick) ease; }
+main:not(.theme-shell) button:not(:disabled):hover, main:not(.theme-shell) a[class*="rounded-full"]:hover { transform: translateY(-2px); }
+main:not(.theme-shell) button:not(:disabled):active, main:not(.theme-shell) a[class*="rounded-full"]:active { transform: translateY(0) scale(.98); }
+main:not(.theme-shell) input:not([type="checkbox"]):not([type="range"]), main:not(.theme-shell) textarea, main:not(.theme-shell) select { transition: border-color var(--spark-quick) ease, box-shadow var(--spark-quick) ease, background-color var(--spark-quick) ease; }
+main:not(.theme-shell) input:not([type="checkbox"]):not([type="range"]):focus, main:not(.theme-shell) textarea:focus, main:not(.theme-shell) select:focus { border-color: var(--admin-ink); box-shadow: 0 0 0 4px rgba(43,33,28,.07); outline: none; }
+main:not(.theme-shell) section[class*="rounded-2xl"], main:not(.theme-shell) form[class*="rounded-2xl"] { border: 1px solid rgba(43,33,28,.06); box-shadow: 0 16px 40px rgba(43,33,28,.045); }
+main:not(.theme-shell) :focus-visible { outline: 2px solid #b8895b; outline-offset: 3px; }
+@media (max-width: 640px) {
+  main:not(.theme-shell) { overflow-x: hidden; }
+  main:not(.theme-shell) h1 { font-size: clamp(2.25rem, 10vw, 3.1rem); }
+  main:not(.theme-shell) section[class*="rounded-2xl"], main:not(.theme-shell) form[class*="rounded-2xl"] { border-radius: 1.25rem; }
+  main:not(.theme-shell) button, main:not(.theme-shell) a { min-height: 42px; }
+}
